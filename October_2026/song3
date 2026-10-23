@@ -1,0 +1,19 @@
+$: setcpm(60)
+
+const drum1 = sound(`
+[-] [-] [-] [-],
+[- rim rim sd] [- - - -] [- - - sd] [rim rim - -],
+[- hh - - ]  [- hh hh -] [hh - - hh] [- - hh oh],
+[bd - bd - ] [- - bd -] [- bd - -] [- bd - bd]
+`).slow(2).distort(2).lpenv("1.5 3 5 7 <3 5>").lpf(550).lpq(.8).ftype('ladder').drive("<.8 3 <3 1.5 0.8>> <3 1.5 0.8> ")
+
+$: n(`<0 <2 4> 1 3 <5 <3 5 7> <4 6 8>>>, 
+      <5 <7 9> 6 8 <10 <7 9 11> <8 10 12>>>/2`).scale("e:dorian").sound("gm_clarinet").gain(2)
+$: n(`<0 <2 4> 1 3 <5 <3 5 7> <4 6 8>>>, 
+      <5 <7 9> 6 8 <10 <7 9 11> <8 10 12>>>/2`).sub(2).scale("<e:dorian a:mixolydian>").sound("gm_clarinet").gain(2)
+
+const partA = stack(drum1)
+
+$: arrange(
+  [12, partA],
+)
