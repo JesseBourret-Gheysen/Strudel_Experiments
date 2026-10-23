@@ -1,0 +1,28 @@
+$: setcpm(60)
+
+const drum1 = sound(`
+[-] [-] [-] [-],
+[- rim rim sd] [- - - -] [- - - sd] [rim rim - -],
+[- hh - - ]  [- hh hh -] [hh - - hh] [- - hh oh],
+[bd - bd - ] [- - bd -] [- bd - -] [- bd - bd]
+`).slow(2).distort(3).lpenv("1.5 3 5 7 <3 5>").lpf(550).lpq(.8).ftype('ladder').drive("<.8 3 <3 1.5 0.8>> <3 1.5 0.8> ")
+
+const drum2 = sound(`
+[-] [-] [-] [-],
+[- rim - -] [- - - -] [- - - -] [- - - -],
+[- hh - - ]  [- - - -] [hh - - hh] [- - - oh],
+[bd - bd - ] [- bd bd -] [- bd - bd] [- bd - bd]
+`).slow(2).distort(3).lpenv("1.5 3 5 7 <3 5>").lpf(950).lpq(.8).ftype('ladder').drive("<.8 3 <3 1.5 0.8>> <3 1.5 0.8> ")
+
+
+// $: n(`[0 2 4 0 3 6] [0] <[0] [4]>`).scale("c:dorian").sound("gm_clarinet").gain(6)
+$: n(`[0 2@ 4 0@ 3 6] [0] <[0 6 7 8] [4@]>`).slow(2).scale("c:dorian").sound("gm_clarinet").lpenv("1.5 3 5 7 <3 5>").gain("6 6 8 4 8 6 6")
+$: n(`[0 -2@ 4 0@ 3 6] [-8] <[-2 4 5 6] [6@]>`).slow(2).scale("c:dorian").sound("gm_clarinet").lpenv("1.5 3 5 7 <3 5>").gain("6 6 8 4 8 6 6")
+
+const partA = stack(drum1)
+const partB = stack(drum2)
+
+$: arrange(
+  [12, partA],
+  [12, partB]
+)
