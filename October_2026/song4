@@ -16,8 +16,8 @@ const drum2 = sound(`
 
 
 // $: n(`[0 2 4 0 3 6] [0] <[0] [4]>`).scale("c:dorian").sound("gm_clarinet").gain(6)
-$: n(`[0 2@ 4 0@ 3 6] [0] <[0 6 7 8] [4@]>`).slow(2).scale("c:dorian").sound("gm_clarinet").lpenv("1.5 3 5 7 <3 5>").gain("6 6 8 4 8 6 6")
-$: n(`[0 -2@ 4 0@ 3 6] [-8] <[-2 4 5 6] [6@]>`).slow(2).scale("c:dorian").sound("gm_clarinet").lpenv("1.5 3 5 7 <3 5>").gain("6 6 8 4 8 6 6")
+$: n(`[0 2@ 4 0@ 3 6] [<0 2 0>] <[0 6@ 7 8@] [4@]>`).slow(2).scale("c:dorian").sound("gm_clarinet").lpenv("1.5 3 5 7 <3 5>").gain("6 6 8 4 8 6 6")
+$: n(`[0 -2@ 4 0@ 3 6] [<-8 -6 -8>] <[-2 4@ 5 6@] [6@]>`).slow(2).scale("c:dorian").sound("gm_clarinet").lpenv("1.5 3 5 7 <3 5>").gain("6 6 8 4 8 6 6")
 
 const partA = stack(drum1)
 const partB = stack(drum2)
